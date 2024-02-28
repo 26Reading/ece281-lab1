@@ -74,14 +74,11 @@ begin
     
     
     with w_sel select
-               o_Y <= i_D when "111",
-               i_C when "110",
-               i_B when "101",
-               i_A when "100",
-   
+              o_Y <= not i_D when "100" | "101" | "110",
+               '1' when "111",
+               i_D when "000" | "001" | "010" | "011",
                '0' when others;
 
-            
             
         
 	-- CONCURRENT STATEMENTS---------------------------------------
